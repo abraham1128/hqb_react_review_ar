@@ -30,8 +30,6 @@ const PerfilDesarrollador = () => {
     const handlerUserFormSubmit = (event: any) => {
         event.preventDefault()
 
-        console.log(event.target.value);
-
         const con = 'tiene pantalla' ;
         const sin = 'no tiene pantalla' ;
 

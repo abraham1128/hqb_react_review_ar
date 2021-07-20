@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import PerfilDesarrollador from './components/PerfilDesarrollador';
+import FormularioUsuario from './components/FormularioUsuario';
 
 
 function App() {
   return (
     <div className="App">
-      <PerfilDesarrollador></PerfilDesarrollador>
+      <FormularioUsuario></FormularioUsuario>
     </div>
   );
 }
