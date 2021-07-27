@@ -78,7 +78,7 @@ const PerfilDesarrollador = () => {
                 <button className="btn btn-secondary">Crear</button>
                
             </form>
-            <h2>Grilla Resultados</h2>
+            <h2>Documentos Contables</h2>
             <table className="table table-striped" >
                 <thead className="thead-dark">
                     <tr>

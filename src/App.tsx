@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-
-import PerfilDesarrollador from './components/PerfilDesarrollador';
-
+import Listar from './containers/ListarDocumento';
 
 function App() {
   return (
     <div className="App">
-      <PerfilDesarrollador></PerfilDesarrollador>
+      <Listar></Listar>
     </div>
   );
 }
