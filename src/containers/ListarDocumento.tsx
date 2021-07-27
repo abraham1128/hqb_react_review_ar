@@ -12,14 +12,15 @@ const ListarDocumento = () => {
     );
 
     return (
-        <div>
-            <h2>Documentos Contables</h2>
-            <table className="table table-striped" >
+        <div className="container-md">
+            <h3 className="text-center">Documentos Contables</h3>
+            <p></p>
+            <table className="table table-striped table-sm" >
                 <thead className="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Código</th>
-                        <th scope="col">Glosa</th>
+                        <th scope="col">Glosa Tipo Documento</th>
                     </tr>
                 </thead>
                 <tbody>
