@@ -10,20 +10,14 @@ const Login = () => {
 
     const [tienePantalla, setTienePantalla] = useState(false);;
 
-    const handlerChangeName = (event: any) => {
+    const handlerChangeEmail = (event: any) => {
         const value = event.target.value;
         setNombre(value)
     }
 
-    const handlerChangeAge = (event: any) => {
+    const handlerChangePassword = (event: any) => {
         const value = event.target.value;
         setEdad(value)
-    }
-
-    const handlerChangeIsMonitor = (event: any) => {
-        //const value = event.target.value === 'checkbox' ? event.target.checked : event.target.value;
-        const value = event.target.value;
-        setTienePantalla(value)
     }
 
 
@@ -57,17 +51,18 @@ const Login = () => {
                 <section className="wrapper">
                     <div className="heading">
                         <h1 className="text text-large">Sign In</h1>
-                        <p className="text text-normal">New user? <span><a href="#" className="text text-links">Create an account</a></span>
+                        <p className="text text-normal">New user? <span>
+                            <a href="#" className="text text-links">Create an account</a></span>
                         </p>
                     </div>
-                    <form name="login" className="form">
+                    <form name="login" className="form" onSubmit={handlerUserFormSubmit}>
                         <div className="input-control">
                             <label htmlFor="email" className="input-label" hidden>Email Address</label>
-                            <input type="email" name="email" className="input-field" placeholder="Email Address"></input>
+                            <input type="email" name="email" className="input-field" placeholder="Email Address" onChange={handlerChangeEmail}></input>
 				        </div>
                         <div className="input-control">
                             <label htmlFor="password" className="input-label" hidden>Password</label>
-                            <input type="password" name="password" className="input-field" placeholder="Password"></input>
+                            <input type="password" name="password" className="input-field" placeholder="Password" onChange={handlerChangePassword}></input>
 				        </div>
                             <div className="input-control">
                                 <a href="#" className="text text-links">Forgot Password</a>
