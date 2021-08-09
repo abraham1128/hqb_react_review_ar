@@ -75,12 +75,12 @@ const PerfilDesarrollador = () => {
                     checked={tienePantalla}
                     onChange={handlerChangeIsMonitor}
                 />
-                <button className="btn btn-secondary">Crear</button>
+                <button classNameName="btn btn-secondary">Crear</button>
                
             </form>
             <h2>Grilla Resultados</h2>
-            <table className="table table-striped" >
-                <thead className="thead-dark">
+            <table classNameName="table table-striped" >
+                <thead classNameName="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Edad</th>
@@ -99,7 +99,7 @@ const PerfilDesarrollador = () => {
                 </tbody>
             </table>
             <p></p>
-            <button className="btn btn-secondary">Limpiar</button>
+            <button classNameName="btn btn-secondary">Limpiar</button>
         </div>
     )
 }

@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
+import Formulario from './containers/Formulario';
 
-import PerfilDesarrollador from './components/PerfilDesarrollador';
+
+interface AppProps {
+  name: string ;
+  isLogin?: boolean;
+}
 
 
-function App() {
+function App(props: AppProps) {
   return (
-    <div className="App">
-      <PerfilDesarrollador></PerfilDesarrollador>
+    <div classNameName="App">
+      <Formulario></Formulario>
     </div>
   );
 }
