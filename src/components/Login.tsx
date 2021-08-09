@@ -1,48 +1,45 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const Login = () => {
     //Hook y sigo mañana
 
-    //Considerar para inicializar
-    const [listaDesarrollador, setListaDesarrollador] = useState<any>([]);
-    const [nombre, setNombre] = useState('');
-    const [edad, setEdad] = useState<number>();
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
-    const [tienePantalla, setTienePantalla] = useState(false);;
+    //Considerar para inicializar
+        
+    let textEmail = useRef<any>(); 
+    let textPassword = useRef<any>(); 
 
     const handlerChangeEmail = (event: any) => {
         const value = event.target.value;
-        setNombre(value)
+        setEmail(value);
     }
 
     const handlerChangePassword = (event: any) => {
         const value = event.target.value;
-        setEdad(value)
+        setPassword(value);
     }
 
 
-    const handlerUserFormSubmit = (event: any) => {
+    const handlerUserFormSubmit = (event: any) =>  { 
         event.preventDefault()
-
-        console.log(event.target.value);
-
-        const con = 'tiene pantalla';
-        const sin = 'no tiene pantalla';
-
-        const desarrollador = {
-            nombre,
-            edad,
-            tienePantalla,
-            glosa: '',
+        
+        if (email.length>0)
+        {
+            textEmail.current.focus();
+            return;
         }
-
-        if (tienePantalla)
-            desarrollador.glosa = con;
+            
+        else if (password.length>0){
+            textPassword.current.focus();
+            return;
+        }
         else
-            desarrollador.glosa = sin;
-
-        const nuevaLista = [...listaDesarrollador, desarrollador]
-        setListaDesarrollador(nuevaLista);
+        {
+            console.log(email+' '+password);
+            alert('Favor ver consola el bug');
+        }
     }
 
     return (
@@ -58,15 +55,15 @@ const Login = () => {
                     <form name="login" className="form" onSubmit={handlerUserFormSubmit}>
                         <div className="input-control">
                             <label htmlFor="email" className="input-label" hidden>Email Address</label>
-                            <input type="email" name="email" className="input-field" placeholder="Email Address" onChange={handlerChangeEmail}></input>
+                            <input type="email" name="email" className="input-field" placeholder="Email Address" ref={textEmail} onChange={handlerChangeEmail} value={email}></input>
 				        </div>
                         <div className="input-control">
                             <label htmlFor="password" className="input-label" hidden>Password</label>
-                            <input type="password" name="password" className="input-field" placeholder="Password" onChange={handlerChangePassword}></input>
+                            <input type="password" name="password" className="input-field" placeholder="Password" ref={textPassword}  onChange={handlerChangePassword} value={password}></input>
 				        </div>
                             <div className="input-control">
                                 <a href="#" className="text text-links">Forgot Password</a>
-                                <input type="button" name="submit" className="input-submit" value="Login" disabled></input>
+                                <button name="submit" className="input-submit">Login</button>
 				            </div>
 			        </form>
                         <div className="striped">
