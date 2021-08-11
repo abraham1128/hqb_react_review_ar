@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react';
+import './Login.scss';
+
 
 const Login = () => {
     //Hook y sigo mañana
@@ -25,13 +27,13 @@ const Login = () => {
     const handlerUserFormSubmit = (event: any) =>  { 
         event.preventDefault()
         
-        if (email.length>0)
+        if (email.length===0)
         {
             textEmail.current.focus();
             return;
         }
             
-        else if (password.length>0){
+        else if (password.length===0){
             textPassword.current.focus();
             return;
         }
