@@ -5,7 +5,7 @@ export interface ComponenteClaseProps {
     segundo: number ;
 };
 
-class ClaseResta extends React.Component<ComponenteClaseProps, string> {
+class ClaseResta extends React.Component<ComponenteClaseProps, any> {
 
     restar(x: number | undefined , y: number | undefined){
         const xi: number = (!!x) ? x : 0;

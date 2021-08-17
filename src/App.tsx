@@ -9,23 +9,22 @@ import Resta from './components/Resta';
 function App() {
 
 
-  const [primerNumero, setPrimerNumero] = useState<number>();
-  const [segundoNumero, setSegundoNumero] = useState<number>();
+  const [primerNumero, setPrimerNumero] = useState<number | undefined>(undefined);
+  const [segundoNumero, setSegundoNumero] = useState<number | undefined>(undefined);
   const [esSuma, setEsSuma] = useState(false);
 
-  const handlerChangeName = (event: any) => {
+  const handlerChangePrimer = (event: any) => {
     const value = event.target.value;
     setPrimerNumero(value)
   }
 
-  const handlerChangeAge = (event: any) => {
+  const handlerChangeSegundo = (event: any) => {
     const value = event.target.value;
     setSegundoNumero(value)
   }
 
 
   const handlerChangeEsSuma = (event: any) => {
-    //const value = event.target.value === 'checkbox' ? event.target.checked : event.target.value;
     const value = event.target.value;
     setEsSuma(value)
 }
@@ -39,7 +38,7 @@ function App() {
       alert("El resultado es: " + renderToString(<Suma primer={primerNumero} segundo={segundoNumero} />));
     } else {
 
-      alert("El resultado es: " + renderToString(<Resta primer={primerNumero} segundo={segundoNumero} />);
+      alert("El resultado es: " + renderToString(<Resta primer={primerNumero} segundo={segundoNumero}/>);
     }
   }
 }
@@ -50,16 +49,16 @@ return (
       Primer Número:
       <input
         type="text"
-        id="name"
+        id="primer"
         value={primerNumero}
-        onChange={handlerChangeName}
+        onChange={handlerChangePrimer}
       />
       Segundo Número:
       <input
         type="text"
-        id="age"
+        id="segundo"
         value={segundoNumero}
-        onChange={handlerChangeAge}
+        onChange={handlerChangeSegundo}
       />
       Suma?
       <input
