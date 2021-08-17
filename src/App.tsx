@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './App.css';
+import { renderToString } from 'react-dom/server'
 
 import Suma from './components/Suma';
 import Resta from './components/Resta';
@@ -10,6 +11,7 @@ function App() {
 
   const [primerNumero, setPrimerNumero] = useState<number>();
   const [segundoNumero, setSegundoNumero] = useState<number>();
+  const [esSuma, setEsSuma] = useState(false);
 
   const handlerChangeName = (event: any) => {
     const value = event.target.value;
@@ -21,35 +23,55 @@ function App() {
     setSegundoNumero(value)
   }
 
+
+  const handlerChangeEsSuma = (event: any) => {
+    //const value = event.target.value === 'checkbox' ? event.target.checked : event.target.value;
+    const value = event.target.value;
+    setEsSuma(value)
+}
+
   const handlerUserFormSubmit = (event: any) => {
     event.preventDefault()
-
     console.log(event.target.value);
 
-  }
+    if (esSuma) {
 
-    return (
-      <div className="App">
-        <form onSubmit={handlerUserFormSubmit}>
-          Primer Número:
-          <input
-            type="text"
-            id="name"
-            value={primerNumero}
-            onChange={handlerChangeName}
-          />
-          Segundo Número:
-          <input
-            type="text"
-            id="age"
-            value={segundoNumero}
-            onChange={handlerChangeAge}
-          />
-          <button className="btn btn-primary">Suma</button>
-          <button className="btn btn-secondary">Resta</button>
-        </form>
-      </div>
-    );
-  }
+      alert("El resultado es: " + renderToString(<Suma primer={primerNumero} segundo={segundoNumero} />));
+    } else {
 
-  export default App;
+      alert("El resultado es: " + renderToString(<Resta primer={primerNumero} segundo={segundoNumero} />);
+    }
+  }
+}
+
+return (
+  <div className="App">
+    <form onSubmit={handlerUserFormSubmit}>
+      Primer Número:
+      <input
+        type="text"
+        id="name"
+        value={primerNumero}
+        onChange={handlerChangeName}
+      />
+      Segundo Número:
+      <input
+        type="text"
+        id="age"
+        value={segundoNumero}
+        onChange={handlerChangeAge}
+      />
+      Suma?
+      <input
+        type="checkbox"
+        id="esSuma"
+        checked={esSuma}
+        onChange={handlerChangeEsSuma}
+      />
+      <button className="btn btn-secondary">Procesar</button>
+    </form>
+  </div>
+)
+
+
+export default App;
